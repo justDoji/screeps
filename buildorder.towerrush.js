@@ -11,6 +11,11 @@ var towerrush = {
             break;
         }
         if(creep) {
+            var controller = creep.room.controller;
+            if(controller.level < 2) {
+                creep.upgradeController(controller);
+            }
+            
             var room = creep.room
             if(room.find(FIND_MY_CONSTRUCTION_SITES).length < 2) {
                     console.log('TOWERRUSHING!');
@@ -32,7 +37,11 @@ var towerrush = {
                             if(room.createConstructionSite(pool.pos.x - 2, pool.pos.y, STRUCTURE_TOWER) != OK) {
                                 console.log('Error while defencing!');
                             } else {
-                                creepAmounts = [6,2,10];
+                                if(room.createConstructionSite(pool.pos.x + 2, pool.pos.y, STRUCTURE_TOWER) != OK) {
+                                    console.log('Error while defencing!');
+                                } else {
+                                    creepAmounts = [6,2,10];
+                                }
                             }
                         }
                     }
