@@ -1,5 +1,4 @@
 var roleHarvester = {
-
     /** @param {Creep} creep **/
     run: function(creep) {
         var name = creep.name

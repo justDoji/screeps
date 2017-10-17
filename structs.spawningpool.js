@@ -6,8 +6,14 @@ var MIN_NUMBER_OF_BUILDERS = 2;
 var WORKER_PROPERTIES = [WORK, CARRY, MOVE, MOVE, MOVE];
 
 var spawning = {
-    run: function() {
+    run: function(buildProperties) {
         presteps.run();
+        if(buildProperties && buildProperties.length == 3) {
+            MIN_NUMBER_OF_HARVESTERS = buildProperties[0];
+            MIN_NUMBER_OF_UPGRADERS = buildProperties[1];
+            MIN_NUMBER_OF_BUILDERS = buildProperties[2]
+        }
+
 
         var spawningPools = Game.spawns;
         for (var poolName in spawningPools) {

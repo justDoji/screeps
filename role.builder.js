@@ -21,9 +21,11 @@ var roleBuilder = {
             }
 	    }
 	    else {
+	        var name = creep.name;
 	        var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            var lastNumber = name.charAt(name.length -1);
+            if(creep.harvest(sources[lastNumber % sources.length]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(sources[lastNumber % sources.length], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
 	    }
 	}

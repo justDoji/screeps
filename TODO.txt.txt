@@ -1,0 +1,6 @@
+* Pathfinding
+	** Add a utility method to see whether or not a resource
+	is currently saturated (check surroundings for walls/creeps)
+
+* Spawning
+    ** Make the amount of spawned creeps variable (and use the guiding numbers as franctions of total possible creeps)
