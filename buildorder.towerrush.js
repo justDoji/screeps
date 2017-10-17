@@ -1,4 +1,5 @@
 var spawning = require('structs.spawningpool');
+var builder = require('util.roadbuilder');
 var towerRange = 7;
 var creepAmounts = [6,2,5];
 
@@ -30,15 +31,7 @@ var towerrush = {
                             }
                         
                     } else {
-                        
-                        var spawningPools = Game.spawns;
-                        for (var poolName in spawningPools) {
-                            console.log('Defencing!');
-                            var pool = spawningPools[poolName];
-                            room.createConstructionSite(pool.pos.x - 2, pool.pos.y, STRUCTURE_TOWER);
-                            room.createConstructionSite(pool.pos.x + 2, pool.pos.y, STRUCTURE_TOWER);
-                        }
-                        
+                        return -1;
                     }
                     
             }
