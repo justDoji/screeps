@@ -1,6 +1,6 @@
-var towerrush = require('buildorder.towerrush');
+var towerrush = require('blueprint.towerrush');
 var spawning = require('structs.spawningpool');
-var defaultMacro = require('buildorder.default');
+var defaultMacro = require('blueprint.default');
 
 var buildcontroller = {
     run: function(buildName) {
