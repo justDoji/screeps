@@ -2,10 +2,11 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
         var name = creep.name
+
         if(creep.carry.energy < 50) {
             var lastNumber = name.charAt(name.length -1);
-
-            var sources = creep.room.find(FIND_SOURCES);
+            let enemyNearbyChecker = require('utils.enemyNearbyChecker');
+            var sources = creep.room.find(FIND_SOURCES, { filter: (source) => { return !enemyNearbyChecker.run(source.pos)}});
             if(creep.harvest(sources[lastNumber % sources.length]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[lastNumber % sources.length], {visualizePathStyle: {stroke: '#ffaa00'}});
             }

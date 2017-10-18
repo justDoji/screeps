@@ -2,6 +2,7 @@
 Creeps that are of type 'worker' are subject to retasking per tick.
 The controler will check that a certain amount of worker roles is present, and reasign creeps as needed
  */
+var SWAP_THRESHOLD = 1250;
 
 var creepController = {
     reassignForRoleIfNeeded: function (role, minAmount, amountOfWorkers, workerPool) {
@@ -21,8 +22,11 @@ var creepController = {
                     break;
                 }
                 var creep = nonHarvesters[nonHarvesterName];
-                creep.memory.role = role;
-                i++;
+                if(creep.memory.swapTime >= SWAP_THRESHOLD) {
+                    creep.memory.role = role;
+                    creep.memory.swapTime = 0;
+                    i++;
+                }
             }
         } else if(_harvesterDelta < 0) {
                 // Get rid of abundance of role-creeps

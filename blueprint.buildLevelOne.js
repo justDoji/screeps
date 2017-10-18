@@ -2,7 +2,7 @@
 Blueprint/Buildorder step for initial level
 Will contain the planning logic for the initial constructions as well as the role assignment distribution of the creeps.
  */
-var distribution = [4,4,2];
+var distribution = [4,2,4];
 
 var buildLevelOne = {
     run: function() {

@@ -15,6 +15,7 @@ var creeps = {
             if(creep.memory.role == 'builder') {
                 roleBuilder.run(creep);
             }
+            creep.memory.swapTime++;
         }
     }
 };
