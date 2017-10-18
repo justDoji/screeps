@@ -10,6 +10,7 @@ var defaultBuild = {
             creep = Game.creeps[creepname];
             break;
         }
+
         if(creep) {
             var controller = creep.room.controller;
             if(controller.level < 8) {

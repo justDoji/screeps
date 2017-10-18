@@ -44,7 +44,7 @@ var spawnDrone = function(pool, role) {
     var newName = role + '-Drone' + time;
 
     if(pool.spawnCreep(WORKER_PROPERTIES, newName,
-        {memory: {role: role, rand: time}}) == 0) {
+        {memory: {role: role, rand: time, type:'worker'}}) == 0) {
         console.log('Spawning new drone: ' + newName + ' [' + role + ']');
     }
 };
