@@ -2,7 +2,7 @@
 Creeps that are of type 'worker' are subject to retasking per tick.
 The controler will check that a certain amount of worker roles is present, and reasign creeps as needed
  */
-var SWAP_THRESHOLD = 1250;
+var SWAP_THRESHOLD = 500;
 
 var creepController = {
     reassignForRoleIfNeeded: function (role, minAmount, amountOfWorkers, workerPool) {
@@ -56,8 +56,9 @@ var creepController = {
 
             var workerPool = Game.creeps;
             workerPool = this.reassignForRoleIfNeeded('harvester', MIN_NUMBER_OF_HARVESTERS, amountOfWorkers, workerPool);
-            workerPool = this.reassignForRoleIfNeeded('upgrader', MIN_NUMBER_OF_UPGRADERS, amountOfWorkers, workerPool);
             workerPool = this.reassignForRoleIfNeeded('builder', MIN_NUMBER_OF_BUILDERS, amountOfWorkers, workerPool);
+            workerPool = this.reassignForRoleIfNeeded('upgrader', MIN_NUMBER_OF_UPGRADERS, amountOfWorkers, workerPool);
+            
 
             var _unnasignedCreeps = _.filter(Game.creeps, (creep) => creep.memory.role == 'undefined');
             for(var creepName in _unnasignedCreeps) {
