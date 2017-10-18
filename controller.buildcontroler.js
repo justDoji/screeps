@@ -1,14 +1,13 @@
-var towerrush = require('blueprint.towerrush');
-var spawning = require('structs.spawningpool');
-var defaultMacro = require('blueprint.default');
+var creepController = require('controller.creepcontroller');
 
 var buildcontroller = {
-    run: function(buildName) {
-        if(buildName == 'towerrush' || buildName == 'TR') {
-            if(towerrush.run() != 0) {
-                defaultMacro.run();
-            }
-        }
+    run: function() {
+        var controllerLevel = 0;
+
+        let buildLevelOne = require('blueprint.buildLevelOne');
+        creepController.run(buildLevelOne.getDistribution());
+        buildLevelOne.run();
+
     }
 };
 

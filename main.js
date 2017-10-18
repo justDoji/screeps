@@ -8,6 +8,7 @@ module.exports.loop = function () {
 
     presteps.run();
     visuals.run();
-    controller.run('TR');
+    spawning.run();
+    controller.run();
     creeps.run();
 }
